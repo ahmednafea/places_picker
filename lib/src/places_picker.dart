@@ -1,18 +1,14 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-
+import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_webservice/geocoding.dart';
+import 'package:google_maps_webservice/places.dart';
 import 'package:places_picker/places_picker.dart';
 import 'package:places_picker/providers/place_provider.dart';
 import 'package:places_picker/src/components/animated_pin.dart';
-import 'package:places_picker/src/components/floating_card.dart';
-import 'package:places_picker/src/place_picker.dart';
-import 'package:google_maps_webservice/geocoding.dart';
-import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 
@@ -365,15 +361,16 @@ class GoogleMapPlacePicker extends StatelessWidget {
         children: <Widget>[
           Text(
             result.formattedAddress!,
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 16),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 10),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              backgroundColor: Color(0xffB3FA9A),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4.0),
+                borderRadius: BorderRadius.circular(16.0),
               ),
             ),
             onPressed: () {
@@ -381,7 +378,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
             },
             child: Text(
               "Select here",
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16, color: Colors.black),
             ),
           ),
         ],
