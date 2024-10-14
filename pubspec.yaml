@@ -16,15 +16,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_maps_flutter: ^2.6.1
-  geolocator: ^11.0.0
+  google_maps_flutter: ^2.9.0
+  geolocator: ^13.0.1
   permission_handler: ^11.3.1
   provider: ^6.1.2
   google_maps_webservice:
     git: https://github.com/ShehanYjoz/google_maps_webservice.git
-  google_api_headers: ^2.0.1
+  google_api_headers: ^4.2.3
   tuple: ^2.0.2
-  http: ^1.2.1
+  http: ^1.2.2
 dependency_overrides:
   http:  ">=0.13.0"
 dev_dependencies:
