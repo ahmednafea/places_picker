@@ -5,7 +5,6 @@ import 'package:places_picker/places_picker.dart';
 import 'package:places_picker/providers/place_provider.dart';
 import 'package:places_picker/providers/search_provider.dart';
 import 'package:places_picker/src/components/prediction_tile.dart';
-import 'package:places_picker/src/components/rounded_frame.dart';
 import 'package:places_picker/src/controllers/autocomplete_search_controller.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
@@ -33,8 +32,7 @@ class AutoCompleteSearch extends StatefulWidget {
       this.initialSearchString,
       this.searchForInitialValue,
       this.autocompleteOnTrailingWhitespace})
-      : assert(searchBarController != null),
-        super(key: key);
+      : super(key: key);
 
   final String? sessionToken;
   final String? hintText;
@@ -202,8 +200,6 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
   _searchPlace(String searchTerm) {
     this.provider.prevSearchTerm = searchTerm;
 
-    if (context == null) return;
-
     _clearOverlay();
 
     if (searchTerm.length < 1) return;
@@ -239,7 +235,7 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
       ),
     );
 
-    Overlay.of(context)!.insert(overlayEntry!);
+    Overlay.of(context).insert(overlayEntry!);
   }
 
   Widget _buildSearchingOverlay() {
