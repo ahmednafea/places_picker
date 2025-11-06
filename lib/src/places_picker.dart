@@ -25,29 +25,30 @@ typedef PinBuilder = Widget Function(
 );
 
 class GoogleMapPlacePicker extends StatelessWidget {
-  const GoogleMapPlacePicker({
-    Key? key,
-    required this.initialTarget,
-    required this.appBarKey,
-    this.selectedPlaceWidgetBuilder,
-    this.pinBuilder,
-    this.onSearchFailed,
-    this.onMoveStart,
-    this.onMapCreated,
-    this.debounceMilliseconds,
-    this.enableMapTypeButton,
-    this.enableMyLocationButton,
-    this.onToggleMapType,
-    this.onMyLocation,
-    this.onPlacePicked,
-    this.usePinPointingSearch,
-    this.usePlaceDetailSearch,
-    this.selectInitialPosition,
-    this.language,
-    this.forceSearchOnZoomChanged,
-    this.hidePlaceDetailsWhenDraggingPin,
-  }) : super(key: key);
-
+  const GoogleMapPlacePicker(
+      {Key? key,
+      required this.initialTarget,
+      required this.appBarKey,
+      this.selectedPlaceWidgetBuilder,
+      this.pinBuilder,
+      this.onSearchFailed,
+      this.onMoveStart,
+      this.onMapCreated,
+      this.debounceMilliseconds,
+      this.enableMapTypeButton,
+      this.enableMyLocationButton,
+      this.onToggleMapType,
+      this.onMyLocation,
+      this.onPlacePicked,
+      this.usePinPointingSearch,
+      this.usePlaceDetailSearch,
+      this.selectInitialPosition,
+      this.language,
+      this.forceSearchOnZoomChanged,
+      this.hidePlaceDetailsWhenDraggingPin,
+      this.themeMainColor})
+      : super(key: key);
+  final Color? themeMainColor;
   final LatLng initialTarget;
   final GlobalKey appBarKey;
 
@@ -253,7 +254,8 @@ class GoogleMapPlacePicker extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(Icons.place, size: 36, color: Colors.red),
+                Icon(Icons.place,
+                    size: 36, color: themeMainColor ?? Colors.red),
                 SizedBox(height: 42),
               ],
             ),
@@ -278,7 +280,8 @@ class GoogleMapPlacePicker extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 AnimatedPin(
-                    child: Icon(Icons.place, size: 36, color: Colors.red)),
+                    child: Icon(Icons.place,
+                        size: 36, color: themeMainColor ?? Colors.red)),
                 SizedBox(height: 42),
               ],
             ),
@@ -367,7 +370,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
           SizedBox(height: 10),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xffB3FA9A),
+              backgroundColor: themeMainColor ?? Colors.black,
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
@@ -378,7 +381,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
             },
             child: Text(
               "Select here",
-              style: TextStyle(fontSize: 16, color: Colors.black),
+              style: TextStyle(fontSize: 16, color: Colors.white),
             ),
           ),
         ],
